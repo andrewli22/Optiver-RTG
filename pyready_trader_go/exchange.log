@@ -1,0 +1,260 @@
+2022-03-10 12:34:35,006 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 12:34:35,007 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 12:34:35,009 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 12:34:35,009 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 12:34:35,009 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 12:34:35,009 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 12:34:35,009 [INFO   ] [INFORMATION] information channel established
+2022-03-10 12:34:35,011 [INFO   ] [MARKET_EVENTS] reader thread complete after processing 0 market events
+2022-03-10 12:34:35,516 [INFO   ] [CONNECTION] fd=528 connection established: peer=127.0.0.1:54101
+2022-03-10 12:34:35,516 [INFO   ] [EXECUTION] fd=528 'TraderOne' is ready!
+2022-03-10 12:34:36,340 [INFO   ] [CONNECTION] fd=1864 connection established: peer=127.0.0.1:54111
+2022-03-10 12:34:40,022 [INFO   ] [CONTROLLER] market open
+2022-03-10 12:35:15,093 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 12:35:15,093 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 12:35:15,093 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 12:35:15,093 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 12:35:15,094 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 12:35:15,098 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 12:35:15,098 [INFO   ] [INFORMATION] information channel established
+2022-03-10 12:35:15,105 [INFO   ] [CONNECTION] fd=1884 connection established: peer=127.0.0.1:54120
+2022-03-10 12:35:15,105 [INFO   ] [EXECUTION] fd=1884 'TraderOne' is ready!
+2022-03-10 12:35:16,403 [INFO   ] [CONNECTION] fd=1976 connection established: peer=127.0.0.1:54121
+2022-03-10 12:35:20,118 [INFO   ] [CONTROLLER] market open
+2022-03-10 12:35:27,182 [INFO   ] [APP] closing event loop
+2022-03-10 12:37:00,960 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 12:37:00,960 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 12:37:00,961 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 12:37:00,961 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 12:37:00,961 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 12:37:00,964 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 12:37:00,964 [INFO   ] [INFORMATION] information channel established
+2022-03-10 12:37:00,965 [INFO   ] [CONNECTION] fd=1840 connection established: peer=127.0.0.1:54149
+2022-03-10 12:37:00,971 [INFO   ] [EXECUTION] fd=1840 'TraderOne' is ready!
+2022-03-10 12:37:00,971 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=0.000000 client_order_id=1 message='order rejected: market not yet open'
+2022-03-10 12:37:00,971 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=0.000000 client_order_id=2 message='order rejected: market not yet open'
+2022-03-10 12:37:02,346 [INFO   ] [CONNECTION] fd=340 connection established: peer=127.0.0.1:54150
+2022-03-10 12:37:05,981 [INFO   ] [CONTROLLER] market open
+2022-03-10 12:38:15,771 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 12:38:15,771 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 12:38:15,771 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 12:38:15,771 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 12:38:15,771 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 12:38:15,772 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 12:38:15,772 [INFO   ] [INFORMATION] information channel established
+2022-03-10 12:38:15,772 [INFO   ] [CONNECTION] fd=1420 connection established: peer=127.0.0.1:54176
+2022-03-10 12:38:15,774 [INFO   ] [EXECUTION] fd=1420 'TraderOne' is ready!
+2022-03-10 12:38:15,774 [INFO   ] [MARKET_EVENTS] reader thread complete after processing 0 market events
+2022-03-10 12:38:17,144 [INFO   ] [CONNECTION] fd=1960 connection established: peer=127.0.0.1:54177
+2022-03-10 12:38:20,798 [INFO   ] [CONTROLLER] market open
+2022-03-10 12:39:55,795 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 12:39:55,795 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 12:39:55,796 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 12:39:55,796 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 12:39:55,796 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 12:39:55,797 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 12:39:55,797 [INFO   ] [INFORMATION] information channel established
+2022-03-10 12:39:56,302 [INFO   ] [CONNECTION] fd=1328 connection established: peer=127.0.0.1:65213
+2022-03-10 12:39:56,303 [INFO   ] [EXECUTION] fd=1328 'TraderOne' is ready!
+2022-03-10 12:39:57,086 [INFO   ] [CONNECTION] fd=1832 connection established: peer=127.0.0.1:65214
+2022-03-10 12:40:02,091 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 12:40:02,092 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 12:40:02,092 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 12:40:02,092 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 12:40:02,092 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 12:40:02,093 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 12:40:02,093 [INFO   ] [INFORMATION] information channel established
+2022-03-10 12:40:02,094 [INFO   ] [CONNECTION] fd=1932 connection established: peer=127.0.0.1:65219
+2022-03-10 12:40:02,100 [INFO   ] [EXECUTION] fd=1932 'TraderOne' is ready!
+2022-03-10 12:40:03,416 [INFO   ] [CONNECTION] fd=1984 connection established: peer=127.0.0.1:65221
+2022-03-10 12:40:07,092 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:18:42,118 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:18:42,118 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:18:42,119 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:18:42,119 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:18:42,119 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:18:42,125 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:18:42,125 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:18:42,748 [INFO   ] [CONNECTION] fd=1004 connection established: peer=127.0.0.1:56975
+2022-03-10 14:18:42,748 [INFO   ] [EXECUTION] fd=1004 'TraderOne' is ready!
+2022-03-10 14:18:43,726 [INFO   ] [CONNECTION] fd=528 connection established: peer=127.0.0.1:56976
+2022-03-10 14:18:47,145 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:19:42,772 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:19:42,772 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:19:42,772 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:19:42,772 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:19:42,773 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:19:42,773 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:19:42,773 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:19:43,216 [INFO   ] [CONNECTION] fd=480 connection established: peer=127.0.0.1:56991
+2022-03-10 14:19:43,216 [INFO   ] [EXECUTION] fd=480 'TraderOne' is ready!
+2022-03-10 14:19:44,303 [INFO   ] [CONNECTION] fd=772 connection established: peer=127.0.0.1:56992
+2022-03-10 14:19:47,796 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:20:37,121 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:20:37,122 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:20:37,122 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:20:37,122 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:20:37,122 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:20:37,126 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:20:37,126 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:20:37,570 [INFO   ] [CONNECTION] fd=800 connection established: peer=127.0.0.1:57001
+2022-03-10 14:20:37,570 [INFO   ] [EXECUTION] fd=800 'TraderOne' is ready!
+2022-03-10 14:20:38,680 [INFO   ] [CONNECTION] fd=912 connection established: peer=127.0.0.1:57005
+2022-03-10 14:20:42,148 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:20:42,149 [INFO   ] [CONNECTION] fd=800 connection lost
+2022-03-10 14:20:42,151 [WARNING] [EXECUTION] fd=800 lost connection to auto-trader:
+2022-03-10 14:21:21,995 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:21:21,996 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:21:21,996 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:21:21,996 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:21:21,996 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:21:22,000 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:21:22,000 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:21:22,465 [INFO   ] [CONNECTION] fd=904 connection established: peer=127.0.0.1:57018
+2022-03-10 14:21:22,465 [INFO   ] [EXECUTION] fd=904 'TraderOne' is ready!
+2022-03-10 14:21:23,547 [INFO   ] [CONNECTION] fd=828 connection established: peer=127.0.0.1:57019
+2022-03-10 14:21:27,012 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:21:27,014 [INFO   ] [CONNECTION] fd=904 connection lost
+2022-03-10 14:21:27,014 [WARNING] [EXECUTION] fd=904 lost connection to auto-trader:
+2022-03-10 14:21:59,537 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:21:59,537 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:21:59,537 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:21:59,537 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:21:59,538 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:21:59,542 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:21:59,542 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:22:00,011 [INFO   ] [CONNECTION] fd=464 connection established: peer=127.0.0.1:57031
+2022-03-10 14:22:00,011 [INFO   ] [EXECUTION] fd=464 'TraderOne' is ready!
+2022-03-10 14:22:01,138 [INFO   ] [CONNECTION] fd=484 connection established: peer=127.0.0.1:57032
+2022-03-10 14:22:04,556 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:22:04,559 [INFO   ] [CONNECTION] fd=464 connection lost
+2022-03-10 14:22:04,559 [WARNING] [EXECUTION] fd=464 lost connection to auto-trader:
+2022-03-10 14:24:32,055 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:24:32,055 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:24:32,055 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:24:32,055 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:24:32,055 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:24:32,059 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:24:32,059 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:24:32,531 [INFO   ] [CONNECTION] fd=912 connection established: peer=127.0.0.1:57169
+2022-03-10 14:24:32,531 [INFO   ] [EXECUTION] fd=912 'TraderOne' is ready!
+2022-03-10 14:24:33,623 [INFO   ] [CONNECTION] fd=984 connection established: peer=127.0.0.1:57170
+2022-03-10 14:24:37,075 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:32:12,073 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:32:12,073 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:32:12,073 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:32:12,073 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:32:12,074 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:32:12,077 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:32:12,077 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:32:12,526 [INFO   ] [CONNECTION] fd=372 connection established: peer=127.0.0.1:57990
+2022-03-10 14:32:12,526 [INFO   ] [EXECUTION] fd=372 'TraderOne' is ready!
+2022-03-10 14:32:13,638 [INFO   ] [CONNECTION] fd=940 connection established: peer=127.0.0.1:57992
+2022-03-10 14:32:17,084 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:32:17,597 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=0.516000 client_order_id=1 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:17,832 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=0.750000 client_order_id=2 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:18,342 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=1.266000 client_order_id=4 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:18,839 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=1.766000 client_order_id=3 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:18,839 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=1.766000 client_order_id=5 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:19,091 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=2.016000 client_order_id=6 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:19,091 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=2.016000 client_order_id=7 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:19,337 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=2.266000 client_order_id=8 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:19,337 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=2.266000 client_order_id=9 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:19,587 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=2.516000 client_order_id=10 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:19,587 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=2.516000 client_order_id=11 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:20,093 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=3.016000 client_order_id=12 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:20,093 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=3.016000 client_order_id=13 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:20,847 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=3.766000 client_order_id=15 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:21,075 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=4.000000 client_order_id=14 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:21,075 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=4.000000 client_order_id=16 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:21,326 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=4.250000 client_order_id=17 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:21,326 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=4.250000 client_order_id=18 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:21,576 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=4.500000 client_order_id=19 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:21,576 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=4.500000 client_order_id=20 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:22,091 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=5.016000 client_order_id=21 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:22,091 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=5.016000 client_order_id=22 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:22,336 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=5.250000 client_order_id=23 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:22,849 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=5.766000 client_order_id=25 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:22,849 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=5.766000 client_order_id=24 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:23,099 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=6.016000 client_order_id=26 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:23,099 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=6.016000 client_order_id=27 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:23,346 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=6.266000 client_order_id=28 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:23,346 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=6.266000 client_order_id=29 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:23,579 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=6.500000 client_order_id=30 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:23,844 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=6.766000 client_order_id=32 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:24,344 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=7.266000 client_order_id=33 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:24,592 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=7.516000 client_order_id=34 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:24,592 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=7.516000 client_order_id=31 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:24,836 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=7.750000 client_order_id=35 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:24,836 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=7.750000 client_order_id=36 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:25,086 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=8.000000 client_order_id=38 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:25,340 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=8.266000 client_order_id=37 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:25,340 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=8.266000 client_order_id=39 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:25,839 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=8.766000 client_order_id=40 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:25,839 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=8.766000 client_order_id=41 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:26,331 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=9.250000 client_order_id=42 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:26,331 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=9.250000 client_order_id=43 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:26,596 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=9.516000 client_order_id=44 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:26,596 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=9.516000 client_order_id=45 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:26,852 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=9.782000 client_order_id=46 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:26,852 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=9.782000 client_order_id=47 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:27,599 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=10.516000 client_order_id=49 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:27,835 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=10.750000 client_order_id=48 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:27,835 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=10.750000 client_order_id=50 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:28,083 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=11.000000 client_order_id=52 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:28,333 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=11.250000 client_order_id=51 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:28,333 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=11.250000 client_order_id=53 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:28,584 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=11.500000 client_order_id=54 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:28,584 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=11.500000 client_order_id=55 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:28,833 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=11.750000 client_order_id=56 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:28,833 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=11.750000 client_order_id=57 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:29,081 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=12.000000 client_order_id=59 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:29,847 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=12.766000 client_order_id=58 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:30,094 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=13.016000 client_order_id=61 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:32:30,094 [INFO   ] [COMPETITOR] 'TraderOne' sent error message: time=13.016000 client_order_id=60 message='out-of-order client_order_id in cancel message'
+2022-03-10 14:39:29,415 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:39:29,415 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:39:29,416 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:39:29,416 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:39:29,416 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:39:29,422 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:39:29,422 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:39:29,892 [INFO   ] [CONNECTION] fd=892 connection established: peer=127.0.0.1:61842
+2022-03-10 14:39:29,892 [INFO   ] [EXECUTION] fd=892 'TraderOne' is ready!
+2022-03-10 14:39:31,004 [INFO   ] [CONNECTION] fd=1004 connection established: peer=127.0.0.1:61843
+2022-03-10 14:39:34,430 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:40:29,207 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:40:29,207 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:40:29,207 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:40:29,207 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:40:29,208 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:40:29,211 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:40:29,211 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:40:29,699 [INFO   ] [CONNECTION] fd=480 connection established: peer=127.0.0.1:61880
+2022-03-10 14:40:29,699 [INFO   ] [EXECUTION] fd=480 'TraderOne' is ready!
+2022-03-10 14:40:30,790 [INFO   ] [CONNECTION] fd=332 connection established: peer=127.0.0.1:61881
+2022-03-10 14:40:34,222 [INFO   ] [CONTROLLER] market open
+2022-03-10 14:40:34,223 [INFO   ] [CONNECTION] fd=480 connection lost
+2022-03-10 14:40:34,223 [WARNING] [EXECUTION] fd=480 lost connection to auto-trader:
+2022-03-10 14:41:15,256 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-10 14:41:15,256 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-10 14:41:15,257 [INFO   ] [CONTROLLER] starting the match
+2022-03-10 14:41:15,257 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-10 14:41:15,257 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-10 14:41:15,260 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-10 14:41:15,261 [INFO   ] [INFORMATION] information channel established
+2022-03-10 14:41:15,676 [INFO   ] [CONNECTION] fd=368 connection established: peer=127.0.0.1:61893
+2022-03-10 14:41:15,676 [INFO   ] [EXECUTION] fd=368 'TraderOne' is ready!
+2022-03-10 14:41:16,757 [INFO   ] [CONNECTION] fd=460 connection established: peer=127.0.0.1:61894
+2022-03-10 14:41:20,258 [INFO   ] [CONTROLLER] market open
+2022-03-11 00:27:25,510 [INFO   ] [APP] exchange started with arguments={rtg.py, run, autotrader.py}
+2022-03-11 00:27:25,510 [INFO   ] [APP] configuration={"Engine":{"MarketDataFile":"data/market_data.csv","MarketEventInterval":0.05,"MarketOpenDelay":5.0,"MatchEventsFile":"match_events.csv","ScoreBoardFile":"score_board.csv","Speed":1.0,"TickInterval":0.25},"Execution":{"Host":"127.0.0.1","Port":12345},"Fees":{"Maker":-0.0001,"Taker":0.0002},"Hud":{"Host":"127.0.0.1","Port":12347},"Information":{"Type":"mmap","Name":"info.dat"},"Instrument":{"EtfClamp":0.002,"TickSize":1.0},"Limits":{"ActiveOrderCountLimit":10,"ActiveVolumeLimit":200,"MessageFrequencyInterval":1.0,"MessageFrequencyLimit":50,"PositionLimit":100},"Traders":{"TraderOne":"secret","TraderTwo":"secret"}}
+2022-03-11 00:27:25,511 [INFO   ] [CONTROLLER] starting the match
+2022-03-11 00:27:25,511 [INFO   ] [EXECUTION] starting execution server: host=127.0.0.1 port=12345
+2022-03-11 00:27:25,511 [INFO   ] [INFORMATION] starting information publisher: type=mmap name=info.dat
+2022-03-11 00:27:25,520 [INFO   ] [HEADS_UP] starting heads-up display server: host=127.0.0.1 port=12347
+2022-03-11 00:27:25,521 [INFO   ] [INFORMATION] information channel established
+2022-03-11 00:27:26,833 [INFO   ] [CONNECTION] fd=1008 connection established: peer=127.0.0.1:49776
+2022-03-11 00:27:26,833 [INFO   ] [EXECUTION] fd=1008 'TraderOne' is ready!
+2022-03-11 00:27:27,703 [INFO   ] [CONNECTION] fd=1016 connection established: peer=127.0.0.1:49777
+2022-03-11 00:27:30,542 [INFO   ] [CONTROLLER] market open

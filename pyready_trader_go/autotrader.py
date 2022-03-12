@@ -16,8 +16,11 @@
 #     License along with Ready Trader Go.  If not, see
 #     <https://www.gnu.org/licenses/>.
 import asyncio
+from email.mime import base
 import itertools
-
+from re import S
+from socket import NI_NAMEREQD
+import pandas as pd
 from typing import List
 
 from ready_trader_go import BaseAutoTrader, Instrument, Lifespan, MAXIMUM_ASK, MINIMUM_BID, Side
@@ -45,6 +48,15 @@ class AutoTrader(BaseAutoTrader):
         self.bids = set()
         self.asks = set()
         self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
+        self.nine_period_high = []
+        self.twenty_six_period_high = []
+        self.fifty_two_period_high = []
+        self.nine_period_low = []
+        self.twenty_six_period_low = []
+        self.fifty_two_period_low = []
+        self.conversion_line = self.base_line = self.span_A = self.span_B = 0
+    
+
 
     def on_error_message(self, client_order_id: int, error_message: bytes) -> None:
         """Called when the exchange detects an error.
@@ -68,6 +80,59 @@ class AutoTrader(BaseAutoTrader):
         self.logger.info("received hedge filled for order %d with average price %d and volume %d", client_order_id,
                          price, volume)
 
+    """
+    Ichimoku trading strategy
+    - Conversion Line -> midpoint of the last 9 average prices
+    - Base Line -> midpoint of the last 26 average prices
+    - Leading Span A -> midpoint of Conversion Line and Base Line
+    - Leading Span B -> midpoint of the last 52 average prices
+    - If Leading A > Leading B (Uptrend)
+    - Leading A < Leading B (Downtrend)
+    - If uptrend and conversion > base buy
+    - If conversion < base sell
+    """
+
+    def indicator(self, ask_prices, bid_prices):
+        if (len(self.nine_period_high) == 10):
+            self.nine_period_high.pop(0)
+        
+        self.nine_period_high.append(max(bid_prices))
+        
+        if (len(self.twenty_six_period_high) == 26):
+            self.twenty_six_period_high.pop(0)
+
+        self.twenty_six_period_high.append(max(bid_prices))
+        
+        if (len(self.fifty_two_period_high) == 52):
+            self.fifty_two_period_high.pop(0)
+        
+        self.fifty_two_period_high.append(max(bid_prices))
+
+        if (len(self.nine_period_low) == 10):
+            self.nine_period_high.pop(0)
+        
+        self.nine_period_low.append(min(ask_prices))
+        
+        if (len(self.twenty_six_period_low) == 10):
+            self.twenty_six_period_low.pop(0)
+        
+        self.twenty_six_period_low.append(min(ask_prices))
+        
+        if (len(self.fifty_two_period_low) == 10):
+            self.fifty_two_period_low.pop(0)
+
+        self.fifty_two_period_low.append(min(ask_prices))
+        
+        self.conversion_line = (sum(self.nine_period_high) + sum(self.nine_period_low))/2
+        self.base_line = (sum(self.twenty_six_period_high) + sum(self.twenty_six_period_low))/2
+        self.span_A = (self.conversion_line + self.base_line)/2
+        self.span_B = (sum(self.fifty_two_period_high) + sum(self.fifty_two_period_low))/2
+
+        print("conversion ", self.conversion_line)
+        print("base ", self.base_line)
+        print("span A ", self.span_A)
+        print("span B ", self.span_B)
+
     def on_order_book_update_message(self, instrument: int, sequence_number: int, ask_prices: List[int],
                                      ask_volumes: List[int], bid_prices: List[int], bid_volumes: List[int]) -> None:
         """Called periodically to report the status of an order book.
@@ -77,9 +142,15 @@ class AutoTrader(BaseAutoTrader):
         prices are reported along with the volume available at each of those
         price levels.
         """
+        self.indicator(ask_prices, bid_prices)
+
+        # if (span_A > span_B and conversion_line < base_line):
+        #     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, LOT_SIZE, Lifespan.GOOD_FOR_DAY)
+        # else:
+        #     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, LOT_SIZE, Lifespan.GOOD_FOR_DAY)
         self.logger.info("received order book for instrument %d with sequence number %d", instrument,
                          sequence_number)
-        if instrument == Instrument.FUTURE:
+        if instrument == Instrument.FUTURE and self.conversion_line != 0 and self.base_line != 0 and self.span_A != 0 and self.span_B != 0:
             price_adjustment = - (self.position // LOT_SIZE) * TICK_SIZE_IN_CENTS
             new_bid_price = bid_prices[0] + price_adjustment if bid_prices[0] != 0 else 0
             new_ask_price = ask_prices[0] + price_adjustment if ask_prices[0] != 0 else 0
@@ -92,16 +163,18 @@ class AutoTrader(BaseAutoTrader):
                 self.ask_id = 0
 
             if self.bid_id == 0 and new_bid_price != 0 and self.position < POSITION_LIMIT:
-                self.bid_id = next(self.order_ids)
-                self.bid_price = new_bid_price
-                self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, LOT_SIZE, Lifespan.GOOD_FOR_DAY)
-                self.bids.add(self.bid_id)
+                if (self.span_A > self.span_B and self.conversion_line < self.base_line):
+                    self.bid_id = next(self.order_ids)
+                    self.bid_price = new_bid_price
+                    self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, LOT_SIZE, Lifespan.GOOD_FOR_DAY)
+                    self.bids.add(self.bid_id)
 
             if self.ask_id == 0 and new_ask_price != 0 and self.position > -POSITION_LIMIT:
-                self.ask_id = next(self.order_ids)
-                self.ask_price = new_ask_price
-                self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, LOT_SIZE, Lifespan.GOOD_FOR_DAY)
-                self.asks.add(self.ask_id)
+                if (self.span_A > self.span_B and self.conversion_line > self.base_line):
+                    self.ask_id = next(self.order_ids)
+                    self.ask_price = new_ask_price
+                    self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, LOT_SIZE, Lifespan.GOOD_FOR_DAY)
+                    self.asks.add(self.ask_id)
 
     def on_order_filled_message(self, client_order_id: int, price: int, volume: int) -> None:
         """Called when when of your orders is filled, partially or fully.

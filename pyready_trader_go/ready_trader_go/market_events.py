@@ -21,6 +21,7 @@ import enum
 import logging
 import queue
 import threading
+from turtle import pd
 
 from typing import Callable, Dict, List, Optional, TextIO
 
@@ -156,7 +157,6 @@ class MarketEventsReader(IOrderListener):
     def reader(self, market_data: TextIO) -> None:
         """Read the market data file and place order events in the queue."""
         fifo = self.queue
-
         with market_data:
             csv_reader = csv.reader(market_data)
             next(csv_reader)  # Skip header row
@@ -179,4 +179,4 @@ class MarketEventsReader(IOrderListener):
             raise
         else:
             self.reader_task = threading.Thread(target=self.reader, args=(market_data,), daemon=True, name="reader")
-            self.reader_task.start()
+            self.reader_task.start()         
