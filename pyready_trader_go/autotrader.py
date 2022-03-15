@@ -20,12 +20,13 @@ from email.mime import base
 import itertools
 from re import S
 from socket import NI_NAMEREQD
+from turtle import update
 import pandas as pd
 from typing import List
 
 from ready_trader_go import BaseAutoTrader, Instrument, Lifespan, MAXIMUM_ASK, MINIMUM_BID, Side
 
-
+import matplotlib.pyplot as plt
 LOT_SIZE = 10
 POSITION_LIMIT = 100
 TICK_SIZE_IN_CENTS = 100
@@ -54,6 +55,13 @@ class AutoTrader(BaseAutoTrader):
         self.nine_period_low = []
         self.twenty_six_period_low = []
         self.fifty_two_period_low = []
+        
+        self.updateCounter = 0
+        self.converl = []
+        self.bassl = []
+        self.Aspan = []
+        self.Bspan = []
+        self.y = []
         self.conversion_line = self.base_line = self.span_A = self.span_B = 0
     
 
@@ -93,11 +101,23 @@ class AutoTrader(BaseAutoTrader):
     """
 
     def indicator(self, ask_prices, bid_prices):
-        if (len(self.nine_period_high) == 10):
-            self.nine_period_high.pop(0)
         
-        self.nine_period_high.append(max(bid_prices))
+        if (bid_prices[0] != 0):
+            self.nine_period_high.append(bid_prices[0])
+            if (len(self.nine_period_high) == 10):
+                self.nine_period_high.pop(0)
         
+        if (bid_prices[0] != 0):
+            self.twenty_six_period_high.append(bid_prices[0])
+            if (len(self.twenty_six_period_high) == 26):
+                self.twenty_six_period_high.pop(0)
+        
+        if (bid_prices[0] != 0):
+            self.fifty_two_period_high.append(bid_prices[0])
+            if (len(self.fifty_two_period_high) == 52):
+                self.fifty_two_period_high.pop(0)
+
+        """
         if (len(self.twenty_six_period_high) == 26):
             self.twenty_six_period_high.pop(0)
 
@@ -122,16 +142,55 @@ class AutoTrader(BaseAutoTrader):
             self.fifty_two_period_low.pop(0)
 
         self.fifty_two_period_low.append(min(ask_prices))
-        
-        self.conversion_line = (sum(self.nine_period_high) + sum(self.nine_period_low))/2
-        self.base_line = (sum(self.twenty_six_period_high) + sum(self.twenty_six_period_low))/2
-        self.span_A = (self.conversion_line + self.base_line)/2
-        self.span_B = (sum(self.fifty_two_period_high) + sum(self.fifty_two_period_low))/2
+        """
 
-        print("conversion ", self.conversion_line)
-        print("base ", self.base_line)
-        print("span A ", self.span_A)
-        print("span B ", self.span_B)
+        if len(self.nine_period_high) > 0:
+            
+            self.conversion_line = (min(self.nine_period_high) + max(self.nine_period_high))/2
+            self.base_line = (min(self.twenty_six_period_high) + max(self.twenty_six_period_high))/2
+            self.span_A = (self.conversion_line + self.base_line)/2
+            self.span_B = (min(self.fifty_two_period_high) + max(self.fifty_two_period_high))/2
+
+            self.updateCounter += 1
+
+            self.bassl.append(self.base_line)
+            self.converl.append(self.conversion_line)
+            self.Aspan.append(self.span_A)
+            self.Bspan.append(self.span_B)
+            self.y.append(self.updateCounter)
+
+
+            print("conversion ", self.conversion_line)
+            print("base ", self.base_line)
+            print("span A ", self.span_A)
+            print("span B ", self.span_B, self.updateCounter)
+
+            if self.updateCounter % 100 == 0:
+                w = []
+                for i in range(len(self.Aspan)):
+                    if self.Aspan[i] > self.Bspan[i]:
+                        w.append(True)
+                    else:
+                        w.append(False)
+
+                red = []
+                for i in range(len(self.Aspan)):
+                    if self.Aspan[i] < self.Bspan[i]:
+                        red.append(True)
+                    else:
+                        red.append(False)
+
+                plt.plot(self.y, self.Aspan, color='green')
+                plt.plot(self.y, self.Bspan, color='red')
+                plt.fill_between(self.y, self.Aspan, self.Bspan, where = w, color='green', alpha=0.3)
+                plt.fill_between(self.y, self.Aspan, self.Bspan, where = red, color='red', alpha=0.3)
+                #plt.plot(self.y, self.converl, color='orange')
+                #plt.plot(self.y, self.bassl, color='blue')
+                plt.title('Price VS Time', fontsize=14)
+                plt.xlabel('Time', fontsize=14)
+                plt.ylabel('Price', fontsize=14)
+                plt.grid(True)
+                plt.show()
 
     def on_order_book_update_message(self, instrument: int, sequence_number: int, ask_prices: List[int],
                                      ask_volumes: List[int], bid_prices: List[int], bid_volumes: List[int]) -> None:
@@ -156,21 +215,29 @@ class AutoTrader(BaseAutoTrader):
             new_ask_price = ask_prices[0] + price_adjustment if ask_prices[0] != 0 else 0
 
             if self.bid_id != 0 and new_bid_price not in (self.bid_price, 0):
+                print("A")
                 self.send_cancel_order(self.bid_id)
                 self.bid_id = 0
             if self.ask_id != 0 and new_ask_price not in (self.ask_price, 0):
+                print("B")
                 self.send_cancel_order(self.ask_id)
                 self.ask_id = 0
 
             if self.bid_id == 0 and new_bid_price != 0 and self.position < POSITION_LIMIT:
+                print("D")
+                print(self.span_A > self.span_B)
+                print(self.conversion_line < self.base_line)
                 if (self.span_A > self.span_B and self.conversion_line < self.base_line):
+                    print("E")
                     self.bid_id = next(self.order_ids)
                     self.bid_price = new_bid_price
                     self.send_insert_order(self.bid_id, Side.BUY, new_bid_price, LOT_SIZE, Lifespan.GOOD_FOR_DAY)
                     self.bids.add(self.bid_id)
 
             if self.ask_id == 0 and new_ask_price != 0 and self.position > -POSITION_LIMIT:
+                print("F")
                 if (self.span_A > self.span_B and self.conversion_line > self.base_line):
+                    print("G")
                     self.ask_id = next(self.order_ids)
                     self.ask_price = new_ask_price
                     self.send_insert_order(self.ask_id, Side.SELL, new_ask_price, LOT_SIZE, Lifespan.GOOD_FOR_DAY)
