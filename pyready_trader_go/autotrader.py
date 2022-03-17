@@ -49,12 +49,9 @@ class AutoTrader(BaseAutoTrader):
         self.bids = set()
         self.asks = set()
         self.ask_id = self.ask_price = self.bid_id = self.bid_price = self.position = 0
-        self.nine_period_high = []
-        self.twenty_six_period_high = []
-        self.fifty_two_period_high = []
-        self.nine_period_low = []
-        self.twenty_six_period_low = []
-        self.fifty_two_period_low = []
+        self.nine_period = []
+        self.twenty_six_period = []
+        self.fifty_two_period = []
         
         self.updateCounter = 0
         self.converl = []
@@ -88,68 +85,30 @@ class AutoTrader(BaseAutoTrader):
         self.logger.info("received hedge filled for order %d with average price %d and volume %d", client_order_id,
                          price, volume)
 
-    """
-    Ichimoku trading strategy
-    - Conversion Line -> midpoint of the last 9 average prices
-    - Base Line -> midpoint of the last 26 average prices
-    - Leading Span A -> midpoint of Conversion Line and Base Line
-    - Leading Span B -> midpoint of the last 52 average prices
-    - If Leading A > Leading B (Uptrend)
-    - Leading A < Leading B (Downtrend)
-    - If uptrend and conversion > base buy
-    - If conversion < base sell
-    """
-
     def indicator(self, ask_prices, bid_prices):
         
         if (bid_prices[0] != 0):
-            self.nine_period_high.append(bid_prices[0])
-            if (len(self.nine_period_high) == 10):
-                self.nine_period_high.pop(0)
+            self.nine_period.append(bid_prices[0])
+            if (len(self.nine_period) == 10):
+                self.nine_period.pop(0)
         
         if (bid_prices[0] != 0):
-            self.twenty_six_period_high.append(bid_prices[0])
-            if (len(self.twenty_six_period_high) == 26):
-                self.twenty_six_period_high.pop(0)
+            self.twenty_six_period.append(bid_prices[0])
+            if (len(self.twenty_six_period) == 26):
+                self.twenty_six_period.pop(0)
         
         if (bid_prices[0] != 0):
-            self.fifty_two_period_high.append(bid_prices[0])
-            if (len(self.fifty_two_period_high) == 52):
-                self.fifty_two_period_high.pop(0)
+            self.fifty_two_period.append(bid_prices[0])
+            if (len(self.fifty_two_period) == 52):
+                self.fifty_two_period.pop(0)
 
-        """
-        if (len(self.twenty_six_period_high) == 26):
-            self.twenty_six_period_high.pop(0)
 
-        self.twenty_six_period_high.append(max(bid_prices))
-        
-        if (len(self.fifty_two_period_high) == 52):
-            self.fifty_two_period_high.pop(0)
-        
-        self.fifty_two_period_high.append(max(bid_prices))
-
-        if (len(self.nine_period_low) == 10):
-            self.nine_period_high.pop(0)
-        
-        self.nine_period_low.append(min(ask_prices))
-        
-        if (len(self.twenty_six_period_low) == 10):
-            self.twenty_six_period_low.pop(0)
-        
-        self.twenty_six_period_low.append(min(ask_prices))
-        
-        if (len(self.fifty_two_period_low) == 10):
-            self.fifty_two_period_low.pop(0)
-
-        self.fifty_two_period_low.append(min(ask_prices))
-        """
-
-        if len(self.nine_period_high) > 0:
+        if len(self.nine_period) > 0:
             
-            self.conversion_line = (min(self.nine_period_high) + max(self.nine_period_high))/2
-            self.base_line = (min(self.twenty_six_period_high) + max(self.twenty_six_period_high))/2
+            self.conversion_line = (min(self.nine_period) + max(self.nine_period))/2
+            self.base_line = (min(self.twenty_six_period) + max(self.twenty_six_period))/2
             self.span_A = (self.conversion_line + self.base_line)/2
-            self.span_B = (min(self.fifty_two_period_high) + max(self.fifty_two_period_high))/2
+            self.span_B = (min(self.fifty_two_period) + max(self.fifty_two_period))/2
 
             self.updateCounter += 1
 
